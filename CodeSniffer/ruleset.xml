@@ -2,6 +2,7 @@
 <ruleset name="corex">
     <description>CoRex Coding Standard</description>
     <rule ref="PSR2">
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
         <exclude name="PSR2.Files.EndFileNewline.NoneFound"/>
