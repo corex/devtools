@@ -15,4 +15,4 @@ if [ -z "$1" ]; then
 	exit
 fi
 
-$SYSDIR/vendor/bin/phpcs --report=full --report-width=120 --standard=$SYSDIR/CodeSniffer/ruleset.xml $1 $2 $3 $4 $5 $6 $7 $8 $9
+$SYSDIR/vendor/bin/phpcs --standard=$SYSDIR/CodeSniffer/ruleset.xml $1 $2 $3 $4 $5 $6 $7 $8 $9
