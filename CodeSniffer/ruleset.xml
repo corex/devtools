@@ -40,6 +40,7 @@
 
         <!-- Disable space count after param-type. -->
         <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamName"/>
 
         <!-- Disable check for single space after NOT operator. -->
         <exclude name="Generic.Formatting.SpaceAfterNot.Incorrect"/>
