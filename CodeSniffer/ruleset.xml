@@ -51,6 +51,23 @@
         <!-- Disable check for single space after cast. -->
         <exclude name="Generic.Formatting.SpaceAfterCast.NoSpace"/>
 
+        <!-- Disable check for '.='. -->
+        <exclude
+                name="SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator.RequiredCombinedAssigmentOperator"/>
+
+        <!-- Disable check for blank line at start of control structure. -->
+        <exclude name="Squiz.WhiteSpace.ControlStructureSpacing.SpacingAfterOpen"/>
+
+        <!-- Disable check for superfluous suffix "Interface". -->
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix"/>
+
+        <!-- Disable check for static closures. -->
+        <exclude name="SlevomatCodingStandard.Functions.StaticClosure.ClosureNotStatic"/>
+
+        <!-- Disable null coalesce operator instead of ternary operator check. -->
+        <exclude
+                name="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator.NullCoalesceOperatorNotUsed"/>
+
         <!-- ? Disable exception check. -->
         <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
 
