@@ -1,2 +1,2 @@
 # devtools
-Various development tools (phpcs, composer, etc....)
+Various development tools (CodeSniffer, composer, etc....)
