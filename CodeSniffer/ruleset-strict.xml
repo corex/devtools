@@ -71,6 +71,12 @@
         <!-- Disable Superfluous suffix Exception check. -->
         <exclude name="SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix"/>
 
+        <!-- Disable check for language construct "require" with parentheses. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses.UsedWithParentheses"/>
+
+        <!-- Disable class name referenced via magic constant. -->
+        <exclude name="SlevomatCodingStandard.Classes.ModernClassNameReference.ClassNameReferencedViaMagicConstant"/>
+
         <!-- ? Disable exception check. -->
         <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
 
