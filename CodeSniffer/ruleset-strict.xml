@@ -80,6 +80,9 @@
         <!-- Disable Class BootstrapTest contains write-only property $type. -->
         <exclude name="SlevomatCodingStandard.Classes.UnusedPrivateElements.WriteOnlyProperty"/>
 
+        <!-- Disable check for "useless" variables since some of them do have a purpose. -->
+        <exclude name="SlevomatCodingStandard.Variables.UselessVariable.UselessVariable"/>
+
         <!-- ? Disable exception check. -->
         <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
 
