@@ -83,6 +83,9 @@
         <!-- Disable sorting check for traits. -->
         <exclude name="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses.IncorrectlyOrderedUses"/>
 
+        <!-- Disable check for "useless" variables since some of them do have a purpose. -->
+        <exclude name="SlevomatCodingStandard.Variables.UselessVariable.UselessVariable"/>
+
         <!-- ? Disable exception check. -->
         <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly.ReferencedGeneralException"/>
 
