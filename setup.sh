@@ -8,11 +8,21 @@ cd $SYSDIR
 if [ ! -f "$SYSDIR/composer.phar" ]; then
 	echo "Download composer."
 	echo ""
-	wget https://getcomposer.org/download/1.0.0/composer.phar
-	if [ ! -f "$SYSDIR/composer.phar" ]; then
-		echo "Something went wrong in installation of composer."
+
+	EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+	ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+	if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+	then
+	    >&2 echo 'ERROR: Invalid installer signature'
+	    rm composer-setup.php
+	    exit 1
 	fi
-	chmod 700 $SYSDIR/composer.phar
+
+	php composer-setup.php --quiet
+	RESULT=$?
+	rm composer-setup.php
 fi
 echo ""
 
@@ -33,11 +43,6 @@ if [ ! -f "$SYSDIR/composer" ]; then
     ln -s $SYSDIR/composer.phar $SYSDIR/composer
 fi
 echo ""
-
-# Symbolic Links for packages.
-if [ ! -f "$SYSDIR/phpunit" ]; then
-    ln -s $SYSDIR/vendor/bin/phpunit $SYSDIR/phpunit
-fi
 
 # Setup PHP CodeSniffer
 echo "Setting up Code Sniffer."
