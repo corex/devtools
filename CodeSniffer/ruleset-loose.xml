@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="corex">
-    <description>CoRex Coding Standard</description>
+    <description>CoRex Coding Standard (loose)</description>
 
     <!-- Arguments. -->
     <arg name="report" value="full"/>

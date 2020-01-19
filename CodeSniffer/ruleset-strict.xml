@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
 <ruleset name="corex">
-    <description>CoRex Coding Standard</description>
+    <description>CoRex Coding Standard (strict)</description>
 
     <!-- Arguments. -->
     <arg name="report" value="full"/>
     <arg name="report-width" value="120"/>
     <arg name="colors"/>
+<!--    ignore vendor-->
+<!--    utf-8-->
 
     <!--
     Following PHP Standards Recommendations - https://www.php-fig.org/psr/
@@ -91,6 +93,61 @@
 
         <!-- ? Disable incorrect annotations group. -->
         <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectAnnotationsGroup"/>
+
+    </rule>
+
+    <rule ref="SlevomatCodingStandard">
+
+        <!-- Disable useless annotation check. -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.UselessAnnotation"/>
+
+        <!-- Method {Class}::{Method} has useless @param annotation for parameter {Parameter}. -->
+        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.UselessAnnotation"/>U
+
+        <!-- Type {Class} should not be used, but referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces.NonFullyQualified"/>
+
+        <!-- Class name {Class} does not match filepath {path}. -->
+        <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName.NoMatchBetweenTypeNameAndFileName"/>
+
+        <!-- Found one-line comment for property {Class}::{variable}, use multi-line comment instead. -->
+        <exclude name="SlevomatCodingStandard.Commenting.DisallowOneLinePropertyDocComment.OneLinePropertyComment"/>
+
+        <!-- Class name {Class} in @var should be referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation.NonFullyQualifiedClassName"/>
+
+        <!-- Usage of array type hint syntax in "{Class}}[]" is disallowed, use generic type hint syntax instead. -->
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowArrayTypeHintSyntax.DisallowedArrayTypeHintSyntax"/>
+
+        <!-- Usage of "mixed" type hint is disallowed. -->
+        <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint"/>
+
+        <!-- Yoda comparison is required. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison"/>
+
+        <!-- Useless parentheses in "new". -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.NewWithoutParentheses.UselessParentheses"/>
+
+        <!-- Function {name}() should be referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions.NonFullyQualified"/>
+
+        <!-- Exception {Class}} should be referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedExceptions.NonFullyQualifiedException"/>
+
+        <!-- Use ternary operator. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireTernaryOperator.TernaryOperatorNotUsed"/>
+
+        <!-- Use of numeric literator separator is required. -->
+        <exclude name="SlevomatCodingStandard.Numbers.RequireNumericLiteralSeparator.RequiredNumericLiteralSeparator"/>
+
+        <!-- Multi-line function calls must have a trailing comma after the last parameter. -->
+        <exclude name="SlevomatCodingStandard.Functions.TrailingCommaInCall.MissingTrailingComma"/>
+
+        <!-- Use arrow function. -->
+        <exclude name="SlevomatCodingStandard.Functions.RequireArrowFunction.RequiredArrowFunction"/>
+
+        <!-- Incorrect order of annotations groups. -->
+        <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectOrderOfAnnotationsGroup"/>
 
     </rule>
 

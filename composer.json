@@ -1,7 +1,6 @@
 {
     "require": {
-        "squizlabs/php_codesniffer": "^3.3",
-        "slevomat/coding-standard": "^4.8",
-        "doctrine/coding-standard": "^5.0"
+        "squizlabs/php_codesniffer": "^3.5",
+        "doctrine/coding-standard": "^7.0"
     }
 }
