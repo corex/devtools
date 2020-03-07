@@ -149,6 +149,36 @@
         <!-- Incorrect order of annotations groups. -->
         <exclude name="SlevomatCodingStandard.Commenting.DocCommentSpacing.IncorrectOrderOfAnnotationsGroup"/>
 
+        <!-- Assigning by reference is disallowed. -->
+        <exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedAssigningByReference"/>
+
+        <!-- Passing by reference is disallowed. -->
+        <exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedPassingByReference"/>
+
+        <!-- Returning reference is disallowed. -->
+        <exclude name="SlevomatCodingStandard.PHP.DisallowReference.DisallowedReturningReference"/>
+
+        <!-- Constant JSON_UNESCAPED_SLASHES should be referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants.NonFullyQualified"/>
+
+        <!-- Constant JSON_PRETTY_PRINT should be referenced via a fully qualified name. -->
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants.NonFullyQualified"/>
+
+        <!-- Use of post-increment operator is disallowed. -->
+        <exclude name="SlevomatCodingStandard.Operators.DisallowIncrementAndDecrementOperators.DisallowedPostIncrementOperator"/>
+
+        <!-- Class name referenced via call of function get_called_class(). -->
+        <exclude name="SlevomatCodingStandard.Classes.ModernClassNameReference.ClassNameReferencedViaFunctionCall"/>
+
+        <!-- Use of short ternary operator is disallowed. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator.DisallowedShortTernaryOperator"/>
+
+        <!-- Superfluous suffix "Trait". -->
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousTraitNaming.SuperfluousSuffix"/>
+
+        <!-- Expected 0 spaces before closing bracket; newline found -->
+        <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+
     </rule>
 
     <!-- Allow generic php functions. -->
