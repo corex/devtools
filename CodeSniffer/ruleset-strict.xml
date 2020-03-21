@@ -181,6 +181,9 @@
 
         <!-- Expected 1 lines before "if", found 0. -->
         <exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing.IncorrectLinesCountBeforeControlStructure"/>
+
+        <!-- Expected 1 lines after "foreach", found 0. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing.IncorrectLinesCountAfterControlStructure"/>
     </rule>
 
     <!-- Allow generic php functions. -->
