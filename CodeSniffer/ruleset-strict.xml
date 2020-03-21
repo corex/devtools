@@ -179,6 +179,8 @@
         <!-- Expected 0 spaces before closing bracket; newline found -->
         <exclude name="PSR2.Methods.FunctionCallSignature.SpaceBeforeCloseBracket"/>
 
+        <!-- Expected 1 lines before "if", found 0. -->
+        <exclude name="SlevomatCodingStandard.ControlStructures.ControlStructureSpacing.IncorrectLinesCountBeforeControlStructure"/>
     </rule>
 
     <!-- Allow generic php functions. -->
