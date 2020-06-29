@@ -45,19 +45,19 @@ fi
 echo ""
 
 # Link composer.phar to composer
-#if [[ ! -f "$SYSDIR/composer" ]]; then
-#    ln -s $SYSDIR/composer.phar $SYSDIR/composer
-#fi
+if [[ ! -f "$SYSDIR/composer" ]]; then
+    ln -s $SYSDIR/composer.phar $SYSDIR/composer
+fi
 
 # Install/Update composer.json
 php composer.phar update
 echo ""
 
 # Setup PHP CodeSniffer
-#echo "Setting up Code Sniffer."
-#$SYSDIR/vendor/bin/phpcs --config-set show_progress 1
-#$SYSDIR/vendor/bin/phpcs --config-set encoding utf-8
-#echo ""
+echo "Setting up Code Sniffer."
+$SYSDIR/vendor/bin/phpcs --config-set show_progress 1
+$SYSDIR/vendor/bin/phpcs --config-set encoding utf-8
+echo ""
 
 # If ~/bin exists, add symbolic links.
 if [[ -d "$HOME/bin" ]]; then
