@@ -69,17 +69,10 @@ if [[ -d "$HOME/bin" ]]; then
         echo ""
     fi
 
-    # Add link to phpcs-loose in ~/bin
-    if [[ ! -f "$HOME/bin/phpcs-loose" ]]; then
-        ln -s $SYSDIR/phpcs-loose.sh $HOME/bin/phpcs-loose
-        echo "Link $HOME/bin/phpcs-loose created."
-        echo ""
-    fi
-
-    # Add link to phpcs-strict in ~/bin
-    if [[ ! -f "$HOME/bin/phpcs-strict" ]]; then
-        ln -s $SYSDIR/phpcs-strict.sh $HOME/bin/phpcs-strict
-        echo "Link $HOME/bin/phpcs-strict created."
+    # Add link to phpcs in ~/bin
+    if [[ ! -f "$HOME/bin/phpcs" ]]; then
+        ln -s $SYSDIR/phpcs.sh $HOME/bin/phpcs
+        echo "Link $HOME/bin/phpcs created."
         echo ""
     fi
 fi
