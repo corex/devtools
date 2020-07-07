@@ -1,0 +1,105 @@
+# Following PHP Standards Recommendations - https://www.php-fig.org/psr/
+#
+# Close as possible to PSR-12 - Extended Coding Style. https://www.php-fig.org/psr/psr-12/
+#
+# Added som personal preferences.
+
+parameters:
+    sets:
+        - common
+        - clean-code
+        - dead-code
+        - symfony
+        - symplify
+        - php70
+        - php71
+        - psr12
+
+    skip:
+        # PSR12 2.2 - All PHP files MUST end with a non-blank line, terminated with a single LF.
+        # Fix is disabled due to:
+        # - Fix requires an empty line. This does not comply to PSR12 2.2.
+        # - Not important if there are an empty line or not
+        PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: null
+
+        # Complete phpdoc block is required for documentation purposes.
+        PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer: null
+
+        # Disabled since NoSpaceAfterCastSniff is required.
+        PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: null
+
+        # Disabled to allow single line phpdoc for class properties.
+        PhpCsFixer\Fixer\Phpdoc\PhpdocLineSpanFixer: null
+
+        # Disabled as a personal preference to have a cleaner reading.
+        PhpCsFixer\Fixer\Operator\NotOperatorWithSuccessorSpaceFixer: null
+
+        # Disabled as a personal preference to choose between Exception/Throwable.
+        SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff.ReferencedGeneralException: null
+
+        # Disabled check for "useless" variables since some of them do have a purpose.
+        SlevomatCodingStandard\Sniffs\Variables\UselessVariableSniff.UselessVariable: null
+
+        # Disabled check for "useless" variables since some of them do have a purpose.
+        PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer: null
+
+        # Disabled as a personal preference of one wants to have a "," or not.
+        PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: null
+
+        # Disabled as a personal preference to not have constants separated when there are many.
+        PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: null
+
+        # Disabled Yoda Style as a personal preference.
+        PhpCsFixer\Fixer\ControlStructure\YodaStyleFixer: null
+
+        # Disabled as a personal preference.
+        PhpCsFixer\Fixer\Operator\IncrementStyleFixer: null
+
+        # Disabled as a personal preference.
+        PhpCsFixer\Fixer\Phpdoc\PhpdocSeparationFixer: null
+
+        # Disabled as a personal preference.
+        PhpCsFixer\Fixer\Phpdoc\PhpdocAnnotationWithoutDotFixer: null
+
+        # Disabled as a personal preference.
+        PhpCsFixer\Fixer\Phpdoc\PhpdocAlignFixer: null
+
+        # Disabled as a personal preference.
+        PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer: null
+
+        # Disabled as a personal preference.
+        Symplify\CodingStandard\Fixer\LineLength\LineLengthFixer: null
+
+        # Disabled as a personal preference (and due to wrong handling of array indentatio).
+        Symplify\CodingStandard\Fixer\ArrayNotation\StandaloneLineInMultilineArrayFixer: null
+
+        # Disabled to only show docblock requirement.
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.MissingParamComment: null
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.SpacingAfterParamName: null
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.SpacingAfterParamType: null
+        PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff.MissingReturn: null
+
+services:
+    # Require 0 spaces after cast.
+    PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\NoSpaceAfterCastSniff: ~
+
+    # Set personal preference order to keep test methods at top and phpunit methods at bottom.
+    PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer:
+        order:
+            - 'use_trait'
+            - 'constant_public'
+            - 'constant_protected'
+            - 'constant_private'
+            - 'property_public'
+            - 'property_protected'
+            - 'property_private'
+            - 'construct'
+            - 'destruct'
+            - 'magic'
+            - 'method_public'
+            - 'method_protected'
+            - 'phpunit'
+            - 'method_private'
+
+    # Require PhpDoc block.
+    PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff: ~

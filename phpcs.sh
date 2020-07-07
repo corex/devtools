@@ -15,4 +15,4 @@ if [[ -z "$1" ]]; then
 	exit
 fi
 
-$SYSDIR/vendor/bin/phpcs --standard=$SYSDIR/CodeSniffer/ruleset-strict.xml $1 $2 $3 $4 $5 $6 $7 $8 $9
+$SYSDIR/vendor/bin/ecs check --config $SYSDIR/ecs/corex.yaml $1 $2 $3 $4 $5 $6 $7 $8 $9
