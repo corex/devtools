@@ -1,6 +1,7 @@
 {
     "require": {
         "php": "^7.2",
-        "symplify/easy-coding-standard": "^8.1"
+        "symplify/easy-coding-standard": "^8.1",
+        "bamarni/symfony-console-autocomplete": "^1.4"
     }
 }

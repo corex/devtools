@@ -75,6 +75,19 @@ if [[ -d "$HOME/bin" ]]; then
         echo "Link $HOME/bin/phpcs created."
         echo ""
     fi
+
+    # Add link to "symfony-autocomplete".
+    if [[ ! -f "$HOME/bin/symfony-autocomplete" ]]; then
+        ln -s $SYSDIR/vendor/bin/symfony-autocomplete $HOME/bin/symfony-autocomplete
+        echo "Link $HOME/bin/symfony-autocomplete created."
+        echo ""
+    fi
+
+    # Make sure "symfony-autocomple is added to ".bashrc".
+    CHECK=$(grep "symfony-autocomplete" $HOME/.bashrc)
+    if [ -z "$CHECK" ]; then
+        echo "eval \"\$(\$HOME/bin/symfony-autocomplete)\"" >> $HOME/.bashrc
+    fi
 fi
 
 cd $CURDIR
