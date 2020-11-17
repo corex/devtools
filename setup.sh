@@ -19,14 +19,13 @@ if [[ ! -f "$SYSDIR/composer.phar" ]]; then
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 	ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
 
-	if [[ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]]
-	then
+	if [[ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]]; then
 	    >&2 echo 'ERROR: Invalid installer signature'
 	    rm composer-setup.php
 	    exit 1
 	fi
 
-	php composer-setup.php --quiet
+	php composer-setup.php
 	RESULT=$?
 	rm composer-setup.php
 fi
@@ -34,14 +33,6 @@ echo ""
 
 # Updating composer to latest version.
 php composer.phar selfupdate
-echo ""
-
-# Updating FXP asset plugin.1
-if [[ -f "$HOME/.composer/vendor/fxp/composer-asset-plugin" ]]; then
-    php composer.phar global update fxp/composer-asset-plugin --no-plugins
-else
-    php composer.phar global require fxp/composer-asset-plugin
-fi
 echo ""
 
 # Link composer.phar to composer
