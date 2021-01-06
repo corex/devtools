@@ -36,9 +36,8 @@ php composer.phar selfupdate
 echo ""
 
 # Link composer.phar to composer
-if [[ ! -f "$SYSDIR/composer" ]]; then
-    ln -s $SYSDIR/composer.phar $SYSDIR/composer
-fi
+rm -f $SYSDIR/composer
+ln -s $SYSDIR/composer.phar $SYSDIR/composer
 
 # Install/Update composer.json
 php composer.phar update
