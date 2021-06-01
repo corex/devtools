@@ -49,6 +49,19 @@ $SYSDIR/vendor/bin/phpcs --config-set show_progress 1
 $SYSDIR/vendor/bin/phpcs --config-set encoding utf-8
 echo ""
 
+# Setup "git number".
+if [[ ! -d "$SYSDIR/git-number" ]]; then
+    echo "Cloning git-number repository."
+    cd $SYSDIR
+    git clone git@github.com:holygeek/git-number.git -q
+else
+    echo "Refreshing git-number repository."
+    cd $SYSDIR/git-number
+    git pull -q
+    cd $SYSDIR
+fi
+echo ""
+
 # If ~/bin exists, add symbolic links.
 if [[ -d "$HOME/bin" ]]; then
 
@@ -77,6 +90,44 @@ if [[ -d "$HOME/bin" ]]; then
     CHECK=$(grep "symfony-autocomplete" $HOME/.bashrc)
     if [ -z "$CHECK" ]; then
         echo "eval \"\$(\$HOME/bin/symfony-autocomplete)\"" >> $HOME/.bashrc
+    fi
+
+    # Add links to "git-number".
+    if [[ ! -f "$HOME/bin/git-number" ]]; then
+        ln -s $SYSDIR/git-number/git-number $HOME/bin/git-number
+        ln -s $SYSDIR/git-number/git-list $HOME/bin/git-list
+        ln -s $SYSDIR/git-number/git-id $HOME/bin/git-id
+        echo "Links for git-number tools added."
+        echo ""
+    fi
+
+    # Make sure "git-number aliases is added to ".bashrc".
+    CHECK=$(grep "^# Setup aliases for git." $HOME/.bashrc)
+    if [ -z "$CHECK" ]; then
+        echo "Setup aliases for git."
+        echo "" >> $HOME/.bashrc
+        echo "# Setup aliases for git." >> $HOME/.bashrc
+        echo "alias gn='git-number '" >> $HOME/.bashrc
+        echo "alias ga='gn add '" >> $HOME/.bashrc
+        echo "alias gap='gn add -p '" >> $HOME/.bashrc
+        echo "alias gbl='git branch --list '" >> $HOME/.bashrc
+        echo "alias gc='gn commit '" >> $HOME/.bashrc
+        echo "alias gca='gc -a '" >> $HOME/.bashrc
+        echo "alias gd='gn diff '" >> $HOME/.bashrc
+        echo "alias gds='gn diff --staged '" >> $HOME/.bashrc
+        echo "alias gdw='gn diff -w '" >> $HOME/.bashrc
+        echo "alias gl='git log '" >> $HOME/.bashrc
+        echo "alias gm='git merge '" >> $HOME/.bashrc
+        echo "alias gmm='git merge master '" >> $HOME/.bashrc
+        echo "alias go='gn checkout '" >> $HOME/.bashrc
+        echo "alias gob='git checkout -b '" >> $HOME/.bashrc
+        echo "alias gom='git checkout master '" >> $HOME/.bashrc
+        echo "alias gres='gn reset '" >> $HOME/.bashrc
+        echo "alias grm='gn rm '" >> $HOME/.bashrc
+        echo "alias gs='gn --column '" >> $HOME/.bashrc
+        echo "alias gush='git push '" >> $HOME/.bashrc
+        echo "alias gull='git pull '" >> $HOME/.bashrc
+        echo ""
     fi
 fi
 
